@@ -1,0 +1,21 @@
+.inputFile {
+  display: none;
+  width: 10px;
+}
+
+.uploadButton {
+  height: 2rem;
+  width: 10rem;
+  display: inline-block;
+  text-align: center;
+  color: var(--color-primary);
+  border: none;
+  border-radius: var(--border-radius);
+  background-color: var(--color-tertiary);
+}
+
+.uploadText {
+  justify-self: center;
+  position: relative;
+  top: 20%;
+}
