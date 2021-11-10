@@ -1,7 +1,11 @@
 import React, { ChangeEvent, useState } from 'react';
 import styles from './ImageInput.module.css';
 
-function ImageInput() {
+type OnUploadProps = {
+  onUpload: (url: string) => void;
+};
+
+function ImageInput({ onUpload }: OnUploadProps) {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -11,10 +15,15 @@ function ImageInput() {
     const file = event.target.files[0];
     const newImageURL = URL.createObjectURL(file);
     setImageUrl(newImageURL);
+    onUpload(newImageURL);
   };
 
   return (
-    <>
+    <div className={styles.container}>
+      {imageUrl && <img src={imageUrl} />}
+      <div className={styles.scanButton}>
+        <span className={styles.uploadText}>Scan</span>
+      </div>
       <label>
         <input
           className={styles.inputFile}
@@ -26,8 +35,11 @@ function ImageInput() {
           <span className={styles.uploadText}>Upload</span>
         </div>
       </label>
-      {imageUrl && <img src={imageUrl} />}
-    </>
+      OR
+      <div className={styles.viewDocuments}>
+        <span className={styles.uploadText}>View Documents</span>
+      </div>
+    </div>
   );
 }
 
