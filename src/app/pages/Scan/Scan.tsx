@@ -1,20 +1,26 @@
 import React, { useState } from 'react';
 import styles from './Scan.module.css';
 import ImageInput from '../../components/ImageInput';
-import Tesseract from 'tesseract.js';
+import { recognizeText } from '../../utils/ocr';
+import Progressbar from '../../components/Progressbar';
 
 function Scan() {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
-  const [recognizedText, setRecoginzedText] = useState<string | null>(null);
+  const [recognizedText, setRecognizedText] = useState<string | null>(null);
   const [loadingProgress, setLoadingProgress] = useState<number | null>(null);
+  const [statusText, setStatusText] = useState<string | null>(null);
 
   let content;
 
   if (recognizedText) {
     content = <p className={styles.recognizedText}>{recognizedText}</p>;
-  } else if (loadingProgress) {
-    content = `${loadingProgress * 100} %`;
-    // content = <p>{loadingProgress}</p>;
+  } else if (loadingProgress && statusText) {
+    content = (
+      <>
+        {loadingProgress * 100}%
+        <Progressbar progress={loadingProgress} status={statusText} />
+      </>
+    );
   } else {
     content = (
       <>
@@ -23,16 +29,13 @@ function Scan() {
           className={styles.scanButton}
           onClick={() => {
             if (imageUrl) {
-              Tesseract.recognize(imageUrl, 'eng', {
-                logger: (m) => {
-                  if (m.status === 'recognizing text') {
-                    setLoadingProgress(m.progress.toFixed(2));
-                  }
-                  console.log(m.progress);
-                },
-              }).then(({ data: { text } }) => {
-                setRecoginzedText(text);
-              });
+              recognizeText(imageUrl, ({ progress, status }) => {
+                if (status === 'recognizing text') {
+                  setLoadingProgress(progress);
+                  setStatusText(status);
+                  console.log(status);
+                }
+              }).then(setRecognizedText);
             }
           }}
         >

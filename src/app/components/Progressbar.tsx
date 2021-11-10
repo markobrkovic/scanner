@@ -1,12 +1,13 @@
 import React from 'react';
 import styles from './Progressbar.module.css';
+import { RecognizeProgress } from '../utils/ocr';
 
-function Progressbar(): JSX.Element {
+function Progressbar({ progress, status }: RecognizeProgress): JSX.Element {
   return (
-    <div className={styles.container}>
-      <span className={styles.text}>Initializing...</span>
-      <progress value="0.5" max="1"></progress>
-    </div>
+    <aside className={styles.container}>
+      <span className={styles.text}>{status}...</span>
+      <progress value={progress} max="1"></progress>
+    </aside>
   );
 }
 
