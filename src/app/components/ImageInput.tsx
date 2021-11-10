@@ -21,9 +21,6 @@ function ImageInput({ onUpload }: OnUploadProps) {
   return (
     <div className={styles.container}>
       {imageUrl && <img src={imageUrl} />}
-      <div className={styles.scanButton}>
-        <span className={styles.uploadText}>Scan</span>
-      </div>
       <label>
         <input
           className={styles.inputFile}
@@ -35,10 +32,6 @@ function ImageInput({ onUpload }: OnUploadProps) {
           <span className={styles.uploadText}>Upload</span>
         </div>
       </label>
-      OR
-      <div className={styles.viewDocuments}>
-        <span className={styles.uploadText}>View Documents</span>
-      </div>
     </div>
   );
 }
