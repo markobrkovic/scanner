@@ -4,6 +4,7 @@ import ImageInput from '../../components/ImageInput';
 
 function Scan() {
   const [imageUrl, setImageUrl] = useState('');
+  console.log(imageUrl);
   return (
     <div className={styles.container}>
       <ImageInput onUpload={setImageUrl} />
