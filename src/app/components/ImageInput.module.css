@@ -3,6 +3,10 @@ body {
   color: var(--color-primary);
 }
 
+.container {
+  display: grid;
+}
+
 .container img {
   width: 10rem;
   height: auto;

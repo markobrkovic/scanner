@@ -25,7 +25,7 @@ function Scan() {
             if (imageUrl) {
               Tesseract.recognize(imageUrl, 'eng', {
                 logger: (m) => {
-                  if (m.status === 'recognizing status') {
+                  if (m.status === 'recognizing text') {
                     setLoadingProgress(m.progress.toFixed(2));
                   }
                   console.log(m.progress);
