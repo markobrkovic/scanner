@@ -1,17 +1,60 @@
+body {
+  background: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+.container {
+  display: grid;
+  position: relative;
+  top: 10rem;
+  place-items: center;
+}
+
+.container img {
+  width: 10rem;
+  height: auto;
+  margin: 1rem;
+}
+
 .inputFile {
   display: none;
   width: 10px;
+}
+
+.scanButton {
+  height: 2rem;
+  width: 10rem;
+  display: inline-block;
+  margin: 0.2rem 1rem;
+  text-align: center;
+  color: var(--color-primary);
+  border: none;
+  border-radius: var(--border-radius);
+  background-color: var(--color-text);
 }
 
 .uploadButton {
   height: 2rem;
   width: 10rem;
   display: inline-block;
+  margin: 0.2rem 1rem 1rem;
   text-align: center;
   color: var(--color-primary);
   border: none;
   border-radius: var(--border-radius);
   background-color: var(--color-tertiary);
+}
+
+.viewDocuments {
+  height: 2rem;
+  width: 10rem;
+  display: inline-block;
+  margin: 1rem 1rem 4rem;
+  text-align: center;
+  color: var(--color-text);
+  border: none;
+  border-radius: var(--border-radius);
+  background-color: var(--color-primary);
 }
 
 .uploadText {
