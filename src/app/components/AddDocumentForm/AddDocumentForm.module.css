@@ -1,0 +1,16 @@
+.documentForm {
+  display: grid;
+  grid-template-columns: 75% 25%;
+  column-gap: 0.2rem;
+}
+
+.nameInput {
+  border: none;
+  padding: 0.3rem 0.2rem;
+}
+
+.documentSave {
+  border: none;
+  color: var(--color-text);
+  background-color: var(--color-tertiary);
+}

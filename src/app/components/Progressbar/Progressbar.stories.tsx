@@ -6,4 +6,6 @@ export default {
   title: 'Components/Progressbar',
 };
 
-export const Default = () => <Progressbar />;
+export const Default = () => (
+  <Progressbar progress={0.5} status={'Initializing...'} />
+);

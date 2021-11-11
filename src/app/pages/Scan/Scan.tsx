@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import styles from './Scan.module.css';
-import ImageInput from '../../components/ImageInput';
+import ImageInput from '../../components/ImageInput/ImageInput';
 import { recognizeText } from '../../utils/ocr';
-import Progressbar from '../../components/Progressbar';
+import Progressbar from '../../components/Progressbar/Progressbar';
+import AddDocumentForm from '../../components/AddDocumentForm/AddDocumentForm';
 
 function Scan() {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
@@ -13,7 +14,12 @@ function Scan() {
   let content;
 
   if (recognizedText) {
-    content = <p className={styles.recognizedText}>{recognizedText}</p>;
+    content = (
+      <>
+        <p className={styles.recognizedText}>{recognizedText}</p>
+        <AddDocumentForm text={recognizedText} />
+      </>
+    );
   } else if (loadingProgress && statusText) {
     content = (
       <>
@@ -30,11 +36,9 @@ function Scan() {
           onClick={() => {
             if (imageUrl) {
               recognizeText(imageUrl, ({ progress, status }) => {
-                if (status === 'recognizing text') {
-                  setLoadingProgress(progress);
-                  setStatusText(status);
-                  console.log(status);
-                }
+                setLoadingProgress(progress);
+                setStatusText(status);
+                console.log(status);
               }).then(setRecognizedText);
             }
           }}
