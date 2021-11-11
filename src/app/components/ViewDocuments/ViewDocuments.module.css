@@ -1,0 +1,17 @@
+.viewDocuments {
+  height: 2rem;
+  width: 10rem;
+  font-size: 1rem;
+  display: inline-block;
+  text-align: center;
+  color: var(--color-text);
+  border: none;
+  border-radius: var(--border-radius);
+  background-color: var(--color-primary);
+  box-shadow: 0 4px 4px 0 #00000040;
+}
+
+.viewDocuments:hover {
+  cursor: pointer;
+  background-color: var(--color-primary);
+}

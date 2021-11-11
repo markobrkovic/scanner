@@ -19,8 +19,8 @@ function ImageInput({ onUpload }: OnUploadProps) {
   };
 
   return (
-    <div className={styles.container}>
-      {imageUrl && <img src={imageUrl} />}
+    <>
+      {imageUrl && <img src={imageUrl} className={styles.image} />}
       <label>
         <input
           className={styles.inputFile}
@@ -32,7 +32,7 @@ function ImageInput({ onUpload }: OnUploadProps) {
           <span className={styles.uploadText}>Upload</span>
         </div>
       </label>
-    </div>
+    </>
   );
 }
 

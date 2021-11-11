@@ -14,3 +14,14 @@
   color: var(--color-text);
   background-color: var(--color-tertiary);
 }
+
+.documentSave:hover {
+  cursor: pointer;
+}
+
+.documentSave:disabled,
+button[disabled] {
+  cursor: default;
+  opacity: 50%;
+  color: #fff;
+}

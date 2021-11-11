@@ -1,13 +1,8 @@
 body {
   background: var(--color-secondary);
-  color: var(--color-primary);
 }
 
-.container {
-  display: grid;
-}
-
-.container img {
+.image {
   width: 10rem;
   height: auto;
   margin: 1rem;
@@ -22,12 +17,18 @@ body {
   height: 2rem;
   width: 10rem;
   display: inline-block;
-  margin: 0.2rem 1rem 1rem;
+
+  /* margin: 0.2rem 1rem 1rem; */
   text-align: center;
   color: var(--color-text);
   border: none;
   border-radius: var(--border-radius);
   background-color: var(--color-tertiary);
+  box-shadow: 0 4px 4px 0 #00000040;
+}
+
+.uploadButton:hover {
+  cursor: pointer;
 }
 
 .uploadText {

@@ -5,6 +5,7 @@ import { RecognizeProgress } from '../../utils/ocr';
 function Progressbar({ progress, status }: RecognizeProgress): JSX.Element {
   return (
     <aside className={styles.container}>
+      <p>{progress * 100}%</p>
       <span className={styles.text}>{status}...</span>
       <progress
         className={styles.progressBar}
