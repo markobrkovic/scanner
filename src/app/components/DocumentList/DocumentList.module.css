@@ -1,0 +1,21 @@
+.documentContainer {
+  width: 50%;
+}
+
+.documentName {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  display: inline-block;
+  margin: 1rem 0;
+  padding: 0.3rem 2rem;
+  border-radius: var(--border-radius);
+}
+
+.documentDate {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  display: inline-block;
+  margin: 1rem;
+  padding: 0.3rem 2rem;
+  border-radius: var(--border-radius);
+}
