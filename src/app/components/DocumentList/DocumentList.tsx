@@ -35,8 +35,8 @@ function DocumentList(): JSX.Element {
     <section>
       {documents &&
         documents.slice(0, 5).map((document) => (
-          <article key={document.id}>
-            <h2>{document.title}</h2>
+          <article className={styles.documentContaier} key={document.id}>
+            <h2 className={styles.documentName}>{document.title}</h2>
             <p>{document.text}</p>
           </article>
         ))}
