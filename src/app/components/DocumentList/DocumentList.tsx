@@ -36,8 +36,12 @@ function DocumentList(): JSX.Element {
       {documents &&
         documents.slice(0, 5).map((document) => (
           <article className={styles.documentContaier} key={document.id}>
-            <h2 className={styles.documentName}>{document.title}</h2>
-            <p>{document.text}</p>
+            <button
+              className={styles.documentName}
+              onClick={() => console.log('MRS')}
+            >
+              {document.title}
+            </button>
           </article>
         ))}
     </section>
