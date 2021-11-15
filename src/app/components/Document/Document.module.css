@@ -1,3 +1,7 @@
+/* .documentContainer {
+  border: 1px solid var(--color-text);
+} */
+
 .documentName {
   background-color: var(--color-primary);
   color: var(--color-text);
