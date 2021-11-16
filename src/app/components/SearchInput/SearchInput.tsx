@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './SearchInput.module.css';
 
 type OnSearchProps = {
@@ -6,14 +6,24 @@ type OnSearchProps = {
 };
 
 function SearchInput({ onSearch }: OnSearchProps): JSX.Element {
+  const [value, setValue] = useState('');
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      onSearch(value);
+    }, 300);
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [value]);
+
   return (
     <input
       type="text"
       className={styles.searchInput}
       placeholder="Search"
       onChange={(event) => {
-        event.preventDefault();
-        onSearch(event.target.value);
+        setValue(event.target.value);
       }}
     ></input>
   );

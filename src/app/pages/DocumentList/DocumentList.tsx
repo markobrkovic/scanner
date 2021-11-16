@@ -17,31 +17,35 @@ function DocumentList(): JSX.Element {
     load();
   }, []);
 
-  alert(search);
+  let content;
 
-  // let content;
-
-  // if(!documents) {
-  //   content = <p>No documents</p>
-  // } else if(documents && search) {
-  //   document = documents.filter(() => document.title === search ( <Document
-  //     id={document.id}
-  //     title={document.title}
-  //     text={document.text}
-  //   />))
-  //   content =
-  // }
+  if (!documents) {
+    content = <p>No documents</p>;
+  } else if (search) {
+    const filteredDocuments = documents?.filter((document) =>
+      document.title.toLowerCase().includes(search.toLowerCase())
+    );
+    content = filteredDocuments?.map((document) => (
+      <Document
+        key={document.key}
+        title={document.title}
+        text={document.text}
+      />
+    ));
+  } else {
+    content = documents?.map((document) => (
+      <Document
+        key={document.key}
+        title={document.title}
+        text={document.text}
+      />
+    ));
+  }
 
   return (
     <div className={styles.container}>
       <SearchInput onSearch={setSearch} />
-      {documents?.map((document) => (
-        <Document
-          id={document.id}
-          title={document.title}
-          text={document.text}
-        />
-      ))}
+      {content}
     </div>
   );
 }
