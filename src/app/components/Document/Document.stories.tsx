@@ -7,5 +7,5 @@ export default {
 };
 
 export const Default = () => (
-  <Document id={1} title={'Dentist'} text={'U owe me 200 bucks'} />
+  <Document key={1} title={'Dentist'} text={'U owe me 200 bucks'} />
 );
